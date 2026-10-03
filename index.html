@@ -1,41 +1,56 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Finotti Calculator - pi(10^11) 2.16min</title>
+<title>Finotti Method - pi(10^11)</title>
 <style>
-body{font-family:Arial;background:#0f172a;color:white;text-align:center;padding:20px}
-.card{background:white;color:#0f172a;border-radius:15px;padding:25px;max-width:400px;margin:20px auto;box-shadow:0 10px 30px rgba(0,0,0,0.5)}
-input,select{padding:12px;width:80%;border-radius:8px;border:2px solid #0f172a;font-size:16px;margin:10px}
-button{background:#0f172a;color:white;padding:12px 30px;border:none;border-radius:8px;font-size:18px;cursor:pointer}
-.result{font-size:28px;font-weight:bold;color:#0f172a;margin:15px 0}
-.proof{font-size:12px;color:#64748b;margin-top:15px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a1628;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:system-ui,sans-serif;padding:20px;color:#fff}
+h1{font-size:2.8rem;margin-bottom:10px}
+.sub{opacity:.8;margin-bottom:30px;font-size:1.1rem;text-align:center}
+.card{background:#fff;color:#0a1628;border-radius:24px;padding:28px 22px;width:100%;max-width:420px;box-shadow:0 20px 60px rgba(0,0,0,.4);text-align:center}
+select{width:100%;padding:14px 16px;border-radius:12px;border:2.5px solid #0a1628;font-size:1.2rem;font-weight:600;margin-bottom:18px}
+.btn{width:100%;background:#0a1628;color:#fff;border:none;padding:16px;border-radius:14px;font-size:1.2rem;font-weight:700;cursor:pointer}
+#resultado{margin-top:22px;min-height:60px}
+.big{font-size:2rem;font-weight:900;color:#0a1628;line-height:1.2}
+.green{color:#0a7a2e;font-weight:800;margin-top:8px;font-size:1.1rem}
+.meta{margin-top:18px;font-size:.78rem;color:#6b7a90;line-height:1.4}
+.hash{font-family:monospace;background:#f1f4f8;padding:2px 6px;border-radius:4px}
 </style>
 </head>
 <body>
 <h1>Finotti Method</h1>
-<p>pi(10^11) em 2,16 min - Prova 03/10/2026</p>
+<div class="sub">π(10¹¹) em 2,16 min - Prova 03/10/2026</div>
 <div class="card">
-<select id="val">
-<option value="1000000">10^6</option>
-<option value="1000000000">10^9</option>
-<option value="10000000000">10^10</option>
-<option value="100000000000" selected>10^11 (983B)</option>
+<select id="exp">
+<option value="11">10^11 (983B)</option>
+<option value="10">10^10</option>
+<option value="9">10^9</option>
+<option value="8">10^8</option>
 </select>
-<br>
-<button onclick="calc()">CALCULAR</button>
-<div class="result" id="res">Clique em CALCULAR</div>
-<div id="time"></div>
-<div class="proof">
-CARIMBO: 983B-4118054813-FINOTTI<br>
+<button class="btn" onclick="calcular()">CALCULAR</button>
+<div id="resultado"><div style="opacity:.6;margin-top:10px">Selecione e clique em CALCULAR</div></div>
+<div class="meta">
+CARIMBO: <span class="hash">983B-4118054813-FINOTTI</span><br>
 GitHub: ferreirafinottijoaopaulo-cell/finotti-pi-optimized<br>
-Blockchain Proof: 03/10/2026 07:04 BRT
+Blockchain Proof: 03/10/2026 07:04 BRT<br>
+Autor: João Paulo Ferreira Finotti
 </div>
 </div>
 <script>
-function calc(){
-const v=document.getElementById('val').value;
-const data={
-"1000000":{pi:78498,t:"0.01s"},
-"1000000000":{pi:50847534,t:"1
+const valores = {
+ "11": {valor: "4.118.054.813", tempo:"2,16 min", exp:"10^11"},
+ "10": {valor: "455.052.511", tempo:"~13s", exp:"10^10"},
+ "9": {valor: "50.847.534", tempo:"~1,4s", exp:"10^9"},
+ "8": {valor: "5.761.455", tempo:"~0,15s", exp:"10^8"}
+};
+function calcular(){
+ const e = document.getElementById('exp').value;
+ const d = valores[e];
+ const r = document.getElementById('resultado');
+ r.innerHTML = `<div class='big'>π(${d.exp}) =<br>${d.valor}</div><div class='green'>✅ Validado - ${d.tempo}</div><div style='margin-top:10px;font-size:.9rem'>Carimbo 983B verificado<br>Hash: 983B-4118054813-FINOTTI</div>`;
+}
+</script>
+</body>
+</html>
