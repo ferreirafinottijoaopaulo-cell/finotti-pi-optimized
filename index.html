@@ -1,1 +1,31 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Finotti LIVE</title><style>body{background:#0a1931;color:#fff;font-family:Arial;text-align:center;padding:15px}.card{background:#fff;color:#0a1931;border-radius:18px;padding:18px;max-width:390px;margin:15px auto}button{background:#0a1931;color:#fff;padding:14px;width:100%;border:0;border-radius:10px;font-weight:bold}input{width:100%;padding:12px;border-radius:10px;font-size:18px;border:2px solid #0a1931;box-sizing:border-box;margin-bottom:10px}</style></head><body><h2>Finotti Method LIVE</h2><p>pi(10^11)=4.118.054.813</p><div class="card"><input id="n" type="number" placeholder="Digite qualquer numero ex: 1000000"><button onclick="calc()">CALCULAR AO VIVO - PROVA REAL</button><div id="r" style="margin-top:15px;font-size:18px">Digite um numero e calcule na hora.<br>Isso prova que nao e gravado.<br><br><small>983B-4118054813-FINOTTI</small></div></div><script>function pi(n){if(n<2)return 0;let s=Math.floor(Math.sqrt(n)),p=[],m=new Uint8Array(s+1),c=0;for(let i=2;i<=s;i++)if(!m[i]){p.push(i);if(i*i<=s)for(let j=i*i;j<=s;j+=i)m[j]=1}let low=s+1,high,seg=new Uint8Array(1000000);c=p.length;while(low<=n){high=Math.min(low+1000000-1,n);seg.fill(0
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Finotti LIVE</title>
+<style>body{background:#0a1931;color:white;text-align:center;font-family:sans-serif;padding:20px}.box{background:white;color:black;border-radius:20px;padding:20px;margin-top:20px} input{width:90%;padding:15px;font-size:20px;border-radius:10px} button{background:#0a1931;color:white;padding:15px;width:95%;border-radius:10px;margin-top:10px;font-size:18px;font-weight:bold} #res{margin-top:15px;font-size:22px;font-weight:bold;color:green}</style>
+</head>
+<body>
+<h1>Finotti Method LIVE</h1>
+<p>pi(10^11)=4.118.054.813</p>
+<div class="box">
+<input id="n" type="number" placeholder="Digite qualquer numero ex: 1000000">
+<button onclick="calc()">CALCULAR AO VIVO - PROVA REAL</button>
+<p>Digite um numero e calcule na hora. Isso prova que nao e gravado.</p>
+<p>983B-4118054813-FINOTTI</p>
+<div id="res"></div>
+</div>
+<script>
+function pi(x){
+let n=parseInt(x); if(n<2) return 0;
+let sieve=new Uint8Array(n+1); let count=0;
+for(let i=2;i<=n;i++){if(!sieve[i]){count++; for(let j=i*i;j<=n;j+=i) sieve[j]=1}}
+return count;
+}
+function calc(){
+let v=document.getElementById('n').value; let t0=performance.now();
+let r=pi(v); let t1=performance.now();
+document.getElementById('res').innerHTML="π("+v+") = "+r+"<br>em "+((t1-t0)/1000).toFixed(3)+"s - AO VIVO";
+}
+</script>
+</body>
+</html>
