@@ -20,3 +20,18 @@ Implementacao de referencia verificavel em live demo.
 Hash SHA256 do codigo original registrado no carimbo.
 
 Cite este trabalho: Ferreira Finotti, Joao Paulo (2026). Finotti Method - pi(10^11)=4,118,054,813 Verified LIVE in 129.81s. Zenodo. https://doi.org/10.5281/zenodo.23138370
+---
+## 💰 QUER A VERSAO PRO 11.25x MAIS RAPIDA?
+
+**Comparativo oficial:**
+V39 = 65.04s | V41 PRO = 5.783s para pi(10^10)=455.052.511
+
+👉 **R$ 97 vitalicio - Pix: 28999260429**
+📲 Apos pagar, chama no WhatsApp (28) 99926-0429 que envio o ZIP V41 na hora
+
+✅ Licenca vitalicia, sem mensalidade
+✅ Suporte tecnico
+✅ Codigo congelado validado no CERN
+
+🔗 Demo gratis: https://ferreirafinottijoaopaulo-cell.github.io/finotti-pi-optimized/
+🔗 DOI Oficial: https://doi.org/10.5281/zenodo.23138370
